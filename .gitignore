@@ -1,3 +1,4 @@
+bin/docker-machine-driver-cloudstack 
 .DS_Store
 *.swp
 *.swo
