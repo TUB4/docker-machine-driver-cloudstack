@@ -1,4 +1,4 @@
-# BT Cloud Compute driver for Docker Machine
+# CloudStack driver for Docker Machine
 
 ## Status
 _*** WORK IN PROGRESS ***_
@@ -9,7 +9,7 @@ This package is incomplete.
 ## Create a machine
 
 ```
-$ docker-machine create -d btcloud <vm name>
+$ docker-machine create -d cloudstack <vm name>
 Running pre-create checks...
 Creating machine...
 Waiting for machine to be running, this may take a few minutes...
@@ -27,13 +27,13 @@ Options:
 
 | Option                      | Environment Variable      | Description                           |Required |
 |-----------------------------|:-------------------------:|---------------------------------------|--------:|
-| --btcloud-endpoint          | BTCLOUD_ENDPOINT          | BT Cloud Compute API endpoint         | N |
-| --btcloud-api-key           | BTCLOUD_API_KEY           | BT Cloud Compute API key              | Y |
-| --btcloud-secret-key        | BTCLOUD_SECRET_KEY        | BT Cloud Compute secret key           | Y |
-| --btcloud-ssl               | BTCLOUD_SSL               | Verify BT Cloud Compute SSL           | N |
-| --btcloud-zone              | BTCLOUD_ZONE              | BT Cloud Compute availability zone    | Y |
-| --btcloud-template          | BTCLOUD_TEMPLATE          | BT Cloud Compute template             | Y |
-| --btcloud-service-offering  | BTCLOUD_SERVICE_OFFERING  | BT Cloud Compute service offering     | Y |
+| --cloudstack-endpoint          | CLOUDSTACK_ENDPOINT          | CloudStack API endpoint               | N |
+| --cloudstack-api-key           | CLOUDSTACK_API_KEY           | CloudStack API key                    | Y |
+| --cloudstack-secret-key        | CLOUDSTACK_SECRET_KEY        | CloudStack secret key                 | Y |
+| --cloudstack-ssl               | CLOUDSTACK_SSL               | Verify SSL                            | N |
+| --cloudstack-zone              | CLOUDSTACK_ZONE              | CloudStack  availability zone         | Y |
+| --cloudstack-template          | CLOUDSTACK_TEMPLATE          | CloudStack  template                  | Y |
+| --cloudstack-service-offering  | CLOUDSTACK_SERVICE_OFFERING  | CloudStack  service offering          | Y |
 
 ##Acknowledgements
 This package uses the excellent [go-cloudstack] (https://github.com/xanzy/go-cloudstack) API client by Sander van Harmelen (<sander@xanzy.io>)
