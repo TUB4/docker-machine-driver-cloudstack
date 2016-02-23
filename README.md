@@ -3,8 +3,17 @@
 ## Status
 _*** WORK IN PROGRESS ***_
 
-This package is incomplete.
+This package is incomplete. It can be used to create and destroy docker machines though.
 
+### To do:
+
+- [ ] Map zone, template & serive offerind IDs to names.
+- [ ] Update checkConfig( ) for the latter.
+- [x] Add Destroy( ) function.
+- [ ] Add Start( ) function.
+- [ ] Add Restart( ) function.
+- [x] Add Kill( ) function.
+- [ ] Add Stop( ) function.
 
 ## Create a machine
 
