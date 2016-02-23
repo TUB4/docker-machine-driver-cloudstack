@@ -1,4 +1,4 @@
-package btcloud
+package cloudstack
 
 import (	
 	"fmt"
@@ -39,51 +39,51 @@ func NewDriver(hostName, storePath string) *Driver {
 func (d *Driver) GetCreateFlags() []mcnflag.Flag {
 	return []mcnflag.Flag {
 		mcnflag.StringFlag{
-			EnvVar: "BTCLOUD_ENDPOINT",
-			Name:   "btcloud-endpoint",
-			Usage:  "BT Cloud Compute API endpoint (URL)",
+			EnvVar: "CLOUDSTACK_ENDPOINT",
+			Name:   "cloudstack-endpoint",
+			Usage:  "API endpoint (URL)",
 		},
 		mcnflag.StringFlag{
-			EnvVar: "BTCLOUD_API_KEY",
-			Name:   "btcloud-api-key",
-			Usage:  "BT Cloud Compute API key",
+			EnvVar: "CLOUDSTACK_API_KEY",
+			Name:   "cloudstack-api-key",
+			Usage:  "API key",
 		},
 		mcnflag.StringFlag{
-			EnvVar: "BTCLOUD_SECRET_KEY",
-			Name:   "btcloud-secret-key",
-			Usage:  "BT Cloud Compute secret key",
+			EnvVar: "CLOUDSTACK_SECRET_KEY",
+			Name:   "cloudstack-secret-key",
+			Usage:  "Decret key",
 		},
 		mcnflag.BoolFlag{
-			EnvVar: "BTCLOUD_SSL",
-			Name:   "btcloud-ssl",
-			Usage:  "Verify BT Cloud Compute SSL",
+			EnvVar: "CLOUDSTACK_SSL",
+			Name:   "cloudstack-ssl",
+			Usage:  "Verify SSL",
 		},
 		mcnflag.StringFlag{
-			EnvVar: "BTCLOUD_ZONE",
-			Name:   "btcloud-zone",
-			Usage:  "BT Cloud Compute availability zone",
+			EnvVar: "CLOUDSTACK_ZONE",
+			Name:   "cloudstack-zone",
+			Usage:  "Availability zone",
 		},
 		mcnflag.StringFlag{
-			EnvVar: "BTCLOUD_TEMPLATE",
-			Name:   "btcloud-template",
-			Usage:  "BT Cloud Compute template",
+			EnvVar: "CLOUDSTACK_TEMPLATE",
+			Name:   "cloudstack-template",
+			Usage:  "Template",
 		},
 		mcnflag.StringFlag{
-			EnvVar: "BTCLOUD_SERVICE_OFFERING",
-			Name:   "btcloud-service-offering",
-			Usage:  "BT Cloud Compute service offering",
+			EnvVar: "CLOUDSTACK_SERVICE_OFFERING",
+			Name:   "cloudstack-service-offering",
+			Usage:  "Service offering",
 		},
 	}
 }
 
 func (d *Driver) SetConfigFromFlags(flags drivers.DriverOptions) error {
-	d.Endpoint = flags.String("btcloud-endpoint")
-	d.APIKey = flags.String("btcloud-api-key")
-	d.SecretKey = flags.String("btcloud-secret-key")
-	d.VerifySSL	= flags.Bool("btcloud-ssl")
-	d.Zone = flags.String("btcloud-zone")
-	d.Template = flags.String("btcloud-template")
-	d.ServiceOffering = flags.String("btcloud-service-offering")
+	d.Endpoint = flags.String("cloudstack-endpoint")
+	d.APIKey = flags.String("cloudstack-api-key")
+	d.SecretKey = flags.String("cloudstack-secret-key")
+	d.VerifySSL	= flags.Bool("cloudstack-ssl")
+	d.Zone = flags.String("cloudstack-zone")
+	d.Template = flags.String("cloudstack-template")
+	d.ServiceOffering = flags.String("cloudstack-service-offering")
 		
 	return d.checkConfig()
 }
@@ -93,19 +93,19 @@ func (d *Driver) checkConfig() error {
 		d.Endpoint = "https://cloud.btcompute.bt.com/client/api"
 	}
 	if d.APIKey == "" {
-		return fmt.Errorf("Please specify an API key (--btcloud-api-key).")
+		return fmt.Errorf("Please specify an API key (--cloudstack-api-key).")
 	}
 	if d.SecretKey == "" {
-		return fmt.Errorf("Please specify a secret key (--btcloud-secret-key).")
+		return fmt.Errorf("Please specify a secret key (--cloudstack-secret-key).")
 	}
 	if d.Zone == "" {
-		return fmt.Errorf("Please specify an availability zone (--btcloud-zone).")
+		return fmt.Errorf("Please specify an availability zone (--cloudstack-zone).")
 	}
 	if d.Template == "" {
-		return fmt.Errorf("Please specify an Ubuntu template (--btcloud-template).")
+		return fmt.Errorf("Please specify an Ubuntu template (--cloudstack-template).")
 	}
 	if d.ServiceOffering == "" {
-		return fmt.Errorf("Please specify a service offering (--btcloud-service-offering).")
+		return fmt.Errorf("Please specify a service offering (--cloudstack-service-offering).")
 	}
 
 	return nil
@@ -116,7 +116,7 @@ func (d *Driver) GetMachineName() string {
 }
 
 func (d *Driver) DriverName() string {
-	return "btcloud"
+	return "cloudstack"
 }
 
 func (d *Driver) Create() error {
