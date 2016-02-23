@@ -7,13 +7,19 @@ This package is incomplete. It can be used to create and destroy docker machines
 
 ### To do:
 
-- [ ] Map zone, template & serive offerind IDs to names.
+- [ ] Map zone, template & service offering IDs to names.
 - [ ] Update checkConfig( ) for the latter.
 - [x] Add Destroy( ) function.
 - [ ] Add Start( ) function.
 - [ ] Add Restart( ) function.
 - [x] Add Kill( ) function.
 - [ ] Add Stop( ) function.
+
+### Known issues
+
+If there is no default network present then CloudStack will create one. This can mean waiting for the system virtual router to spin up. This can sometimes cause docker-machine to time out.
+
+**Solution:** Create a virtual network manually or use a persistent network.
 
 ## Create a machine
 
