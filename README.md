@@ -3,7 +3,7 @@
 ## Status
 _*** WORK IN PROGRESS ***_
 
-This package is incomplete. It can be used to create and destroy docker machines though.
+This package is incomplete. At present, service-related parameters (zone, template, service offering) must be passed as CloudStack UUIDs. It can be used to create, control and destroy docker machines.
 
 ### To do:
 
